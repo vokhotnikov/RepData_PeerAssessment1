@@ -5,6 +5,9 @@ output:
     keep_md: true
 ---
 
+This is my report for the *Peer Assessment One* of the *Reproducible Research*
+Coursera course.
+
 
 
 ## Loading and preprocessing the data
@@ -41,7 +44,7 @@ data[1000:1003,]
 
 ## What is mean total number of steps taken per day?
 
-In order to answer the question, we first summarize total number of steps by 
+In order to answer the question, I first summarized total number of steps by 
 date:
 
 
@@ -101,7 +104,7 @@ median(totalByDay$total, na.rm = TRUE)
 
 ## What is the average daily activity pattern?
 
-In order to answer the question, we summarize average number of steps between
+In order to answer the question, I summarized average number of steps between
 days per interval:
 
 
@@ -214,8 +217,8 @@ median(totalByDayWithImputedNAs$total, na.rm = TRUE)
 ## [1] 10762
 ```
 
-We can see that imputing the missing values with the chosen strategy does not
-significantly impact on estimates of total number of steps per day for the
+It can be seen that imputing the missing values with the chosen strategy does
+not significantly impact on estimates of total number of steps per day for the
 dataset in question.
 
 The histogram of the total number of steps per day stayed the same. There is a
@@ -251,6 +254,10 @@ summary(dataWithWeekendFactor)
 ##  NA's   :2304
 ```
 
+Next, I summarized the data with the factor to get the average (mean) number of
+steps per 5-minute interval for weekdays and weekends.
+
+
 ```r
 avgByIntervalWithWeekendFactor <- dataWithWeekendFactor %>% 
     group_by(interval, weekDayType) %>% 
@@ -285,10 +292,10 @@ qplot(interval, avgSteps, data = avgByIntervalWithWeekendFactor,
 The plot suggests that there might be a few differences between weekday and
 weekend days activity patterns for the dataset in question:
 
-* weekend days activity starts later than weekday one
+* weekend days activity typically starts later than weekday one
 
 * overall activity during daytime period (10am - 20pm approximately) on weekends
     is noticeably larger than on weekday days
     
 * at the same time, overall morning activity (before 10am approximately) is
-    noticeably larger on weekday days
+    noticeably larger on weekday days than on weekends

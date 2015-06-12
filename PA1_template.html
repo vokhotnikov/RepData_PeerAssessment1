@@ -201,6 +201,9 @@ hr {
 </head>
 
 <body>
+<p>This is my report for the <em>Peer Assessment One</em> of the <em>Reproducible Research</em>
+Coursera course.</p>
+
 <h2>Loading and preprocessing the data</h2>
 
 <p>First of all, I read the data from the source CSV file:</p>
@@ -230,7 +233,7 @@ head(data, 4)
 
 <h2>What is mean total number of steps taken per day?</h2>
 
-<p>In order to answer the question, we first summarize total number of steps by 
+<p>In order to answer the question, I first summarized total number of steps by 
 date:</p>
 
 <pre><code class="r">totalByDay &lt;- data %&gt;% 
@@ -279,7 +282,7 @@ head(totalByDay)
 
 <h2>What is the average daily activity pattern?</h2>
 
-<p>In order to answer the question, we summarize average number of steps between
+<p>In order to answer the question, I summarized average number of steps between
 days per interval:</p>
 
 <pre><code class="r">avgByInterval &lt;- data %&gt;% 
@@ -371,8 +374,8 @@ day:</p>
 <pre><code>## [1] 10762
 </code></pre>
 
-<p>We can see that imputing the missing values with the chosen strategy does not
-significantly impact on estimates of total number of steps per day for the
+<p>It can be seen that imputing the missing values with the chosen strategy does
+not significantly impact on estimates of total number of steps per day for the
 dataset in question.</p>
 
 <p>The histogram of the total number of steps per day stayed the same. There is a
@@ -405,6 +408,9 @@ summary(dataWithWeekendFactor)
 ##  NA&#39;s   :2304
 </code></pre>
 
+<p>Next, I summarized the data with the factor to get the average (mean) number of
+steps per 5-minute interval for weekdays and weekends.</p>
+
 <pre><code class="r">avgByIntervalWithWeekendFactor &lt;- dataWithWeekendFactor %&gt;% 
     group_by(interval, weekDayType) %&gt;% 
     summarize(avgSteps = mean(steps, na.rm = TRUE)) 
@@ -436,11 +442,11 @@ between weekday and weekend days:</p>
 weekend days activity patterns for the dataset in question:</p>
 
 <ul>
-<li><p>weekend days activity starts later than weekday one</p></li>
+<li><p>weekend days activity typically starts later than weekday one</p></li>
 <li><p>overall activity during daytime period (10am - 20pm approximately) on weekends
 is noticeably larger than on weekday days</p></li>
 <li><p>at the same time, overall morning activity (before 10am approximately) is
-noticeably larger on weekday days</p></li>
+noticeably larger on weekday days than on weekends</p></li>
 </ul>
 
 </body>
